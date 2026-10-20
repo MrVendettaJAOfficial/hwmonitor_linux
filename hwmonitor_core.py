@@ -35,8 +35,8 @@ from pathlib import Path
 from typing import Callable, Dict, List, Optional
 
 __version__ = "1.0.0"
-APP_NAME = "Linux HWMonitor"
-APP_ID = "linux-hwmonitor"
+APP_ID = "io.github.linux_hwmonitor"
+APP_SLUG = "linux-hwmonitor"
 
 # Tests point this at a fake sysfs/procfs tree.
 SYSROOT = os.environ.get("HWMONITOR_SYSROOT", "/")
@@ -158,7 +158,7 @@ HWMON_KINDS = [
 
 
 def _norm(name: str) -> str:
-    return name.replace("-", "_").lower()
+    return re.sub(r"_\d+$", "", name.replace("-", "_").lower())
 
 
 def _classify(chip: str):
@@ -616,11 +616,10 @@ def _config_home() -> Path:
 
 
 def config_file() -> Path:
-    return _config_home() / APP_ID / "config.json"
-
+    return _config_home() / APP_SLUG / "config.json"
 
 def autostart_file() -> Path:
-    return _config_home() / "autostart" / f"{APP_ID}.desktop"
+    return _config_home() / "autostart" / f"{APP_SLUG}.desktop"
 
 
 class Settings:
