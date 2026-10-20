@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "linux-hwmonitor"
+version = "1.0.0"
+description = "Linux HWMonitor - sensor backend, alert engine and GTK4 front end"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = []          # core has no deps; the GUI needs system PyGObject
+optional-dependencies = {
+    gui = ["PyGObject>=3.42"],
+}
+
+[project.scripts]
+linux-hwmonitor = "hwmonitor:main"
+
+[tool.setuptools]
+py-modules = ["hwmonitor", "hwmonitor_core", "hwmonitor_gui"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
