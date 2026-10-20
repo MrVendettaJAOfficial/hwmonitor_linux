@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Linux HWMonitor
+Comment=Hardware temperature and sensor monitor
+Exec=linux-hwmonitor
+Icon=linux-hwmonitor
+Terminal=false
+Categories=System;Monitor;
+Keywords=sensor;temperature;fan;monitor;hwmon;
+StartupNotify=true
