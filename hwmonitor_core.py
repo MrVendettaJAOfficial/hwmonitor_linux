@@ -35,6 +35,7 @@ from pathlib import Path
 from typing import Callable, Dict, List, Optional
 
 __version__ = "1.0.0"
+APP_NAME = "Linux HWMonitor"
 APP_ID = "io.github.linux_hwmonitor"
 APP_SLUG = "linux-hwmonitor"
 
@@ -879,7 +880,7 @@ def _desktop_quote(arg: str) -> str:
 
 
 def launch_command(minimized: bool = False) -> str:
-    exe = shutil.which(APP_ID)
+    exe = shutil.which(APP_SLUG)
     cmd = [exe] if exe else [sys.executable, str(Path(__file__).resolve().with_name("hwmonitor.py"))]
     if minimized:
         cmd.append("--minimized")
@@ -906,7 +907,7 @@ def set_autostart(enabled: bool) -> bool:
                 f"Name={APP_NAME}\n"
                 "Comment=Hardware temperature and sensor monitor\n"
                 f"Exec={launch_command(minimized=True)}\n"
-                f"Icon={APP_ID}\n"
+                f"Icon={APP_SLUG}\n"
                 "Terminal=false\n"
                 "StartupNotify=false\n"
                 "Categories=System;Monitor;\n"
