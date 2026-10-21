@@ -38,47 +38,49 @@ Install the generated .deb file using apt so that dependencies are resolved auto
 
 ```
 sudo apt install ./dist/linux-hwmonitor_1.0.0_all.deb
-You're done! You can now find Linux HWMonitor by searching your system's application menu, or launch it from the terminal.
 ```
+You're done! You can now find Linux HWMonitor by searching your system's application menu, or launch it from the terminal.
 
-Usage
-GUI Mode (Default)
+
+# Usage
+### GUI Mode (Default)
 Launch it from your desktop application menu, or run:
 
 ```linux-hwmonitor```
 
-CLI Mode
+### CLI Mode
 Print a single report of all current sensors and exit:
 
 ```
 linux-hwmonitor --cli
 ```
 
-JSON Mode
+### JSON Mode
 Output all sensor data as structured JSON (useful for scripts or dashboards):
 
 ```
 linux-hwmonitor --json
 ```
 
-Live Terminal Mode
+### Live Terminal Mode
 Watch the sensors update live in your terminal (like htop but for temperatures):
 
 ```
 linux-hwmonitor --watch
 ```
 
-Headless Daemon Mode
+### Headless Daemon Mode
 Run in the background to monitor temperatures and send desktop notifications if things get too hot:
 
 ```
 linux-hwmonitor --daemon
 ```
 
-Configuration
+# Configuration
 Settings are saved in standard XDG format:
+```
 ~/.config/linux-hwmonitor/config.json
-
+```
 You can edit this file directly, or use the Preferences menu inside the GUI.
 
 Default thresholds (Warning / Critical):
@@ -93,19 +95,19 @@ Other: 80 °C / 90 °C
 
 Other settings include Fahrenheit toggle, notification recovery toggle, polling interval, and "Start at login" (autostart).
 
-Uninstallation
-To remove the application:
+# Uninstallation
+### To remove the application:
 
 ```
 sudo apt remove linux-hwmonitor
 ```
 
-To remove the application and the isolated Python environment created in /opt:
+### To remove the application and the isolated Python environment created in /opt:
 
 ```
 sudo apt purge linux-hwmonitor
 ```
 (Note: Your personal configuration in ~/.config/linux-hwmonitor/ is never touched by apt and must be deleted manually if desired.)
 
-License
+# License
 This project is licensed under the MIT License.
