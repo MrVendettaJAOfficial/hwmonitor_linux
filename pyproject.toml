@@ -19,7 +19,3 @@ linux-hwmonitor = "hwmonitor:main"
 
 [tool.setuptools]
 py-modules = ["hwmonitor", "hwmonitor_core", "hwmonitor_gui"]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-addopts = "-q"
