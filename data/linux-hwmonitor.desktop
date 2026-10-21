@@ -1,10 +1,14 @@
 [Desktop Entry]
+Version=1.0
 Type=Application
 Name=Linux HWMonitor
-Comment=Hardware temperature and sensor monitor
-Exec=linux-hwmonitor
+GenericName=Hardware Monitor
+Comment=Temperature, fan, voltage and power sensors
+Exec=/usr/bin/linux-hwmonitor
+TryExec=/usr/bin/linux-hwmonitor
 Icon=linux-hwmonitor
 Terminal=false
-Categories=System;Monitor;
+Categories=System;Monitor;GTK;
 Keywords=sensor;temperature;fan;monitor;hwmon;
 StartupNotify=true
+StartupWMClass=io.github.linux_hwmonitor
