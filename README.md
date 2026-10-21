@@ -16,54 +16,65 @@ Linux HWMonitor reads temperatures, fans, voltages, power, clocks, CPU load, mem
 
 We use a custom build script to package the application as a standard `.deb` file. This ensures it shows up in your application menu and includes an isolated virtual environment so it won't break your system Python.
 
-### 1. Install System Dependencies
+1. Install System Dependencies
 
 You need the GTK4 bindings and notification tools installed at the system level (these cannot be installed via `pip`):
 
-```bash
+```
 sudo apt update
 sudo apt install python3-gi python3-gi-cairo gir1.2-gtk-4.0 gir1.2-adw-1 libnotify-bin
+
+```
 2. Build the Package
 Clone or download this repository, open a terminal in the project folder, and run:
 
-bash
-chmod +x build_deb.sh
+```chmod +x build_deb.sh
 ./build_deb.sh
+```
 This will generate dist/linux-hwmonitor_1.0.0_all.deb.
 
 3. Install the Application
 Install the generated .deb file using apt so that dependencies are resolved automatically:
 
-bash
+```
 sudo apt install ./dist/linux-hwmonitor_1.0.0_all.deb
 You're done! You can now find Linux HWMonitor by searching your system's application menu, or launch it from the terminal.
+```
 
 Usage
 GUI Mode (Default)
 Launch it from your desktop application menu, or run:
 
-bash
-linux-hwmonitor
+```linux-hwmonitor```
+
 CLI Mode
 Print a single report of all current sensors and exit:
 
-bash
+```
 linux-hwmonitor --cli
+```
+
 JSON Mode
 Output all sensor data as structured JSON (useful for scripts or dashboards):
 
-bash
+```
 linux-hwmonitor --json
+```
+
 Live Terminal Mode
 Watch the sensors update live in your terminal (like htop but for temperatures):
 
-bash
+```
 linux-hwmonitor --watch
+```
+
 Headless Daemon Mode
 Run in the background to monitor temperatures and send desktop notifications if things get too hot:
 
-bash
+```
 linux-hwmonitor --daemon
+```
+
 Configuration
 Settings are saved in standard XDG format:
 ~/.config/linux-hwmonitor/config.json
@@ -85,12 +96,15 @@ Other settings include Fahrenheit toggle, notification recovery toggle, polling 
 Uninstallation
 To remove the application:
 
-bash
+```
 sudo apt remove linux-hwmonitor
+```
+
 To remove the application and the isolated Python environment created in /opt:
 
-bash
+```
 sudo apt purge linux-hwmonitor
+```
 (Note: Your personal configuration in ~/.config/linux-hwmonitor/ is never touched by apt and must be deleted manually if desired.)
 
 License
